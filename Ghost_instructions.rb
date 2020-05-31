@@ -9,7 +9,11 @@
 # Know how to test methods in pry
 # Know how to read lines from a text file
 # Understand how __FILE__ == $PROGRAM_NAME works
+
+
+
 # Phase 1: Playing a Single Round
+
 # Let's start by writing the logic to play a single round of Ghost 
 # (that is, playing until one player spells a word). 
 # Write your game for two players only, and don't worry about keeping track of wins
@@ -71,6 +75,8 @@
 
 # I wrote initialize, guess, and alert_invalid_guess methods. 
 # You'll probably want each Player to have a name, as well.
+
+
 
 # Phase 2: Playing a Full Game
 
