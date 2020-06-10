@@ -57,3 +57,12 @@ class Game
         else false
         end
     end
+
+    def round_lost?
+        matched = []
+        @dictionary.each { |word| @fragment == word ? matched << word : word }
+        if matched.count == 1
+            true
+        else false
+        end
+    end
