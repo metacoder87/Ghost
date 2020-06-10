@@ -147,6 +147,6 @@ class Game
         end
     end
 
-    game = Game.new('player_1', 'player_2')
+    game = Game.new('player_1', 'player_2', 'player_3')
     game.take_turn(game.play_game)
 end
