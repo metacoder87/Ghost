@@ -67,6 +67,10 @@ class Game
         end
     end
 
+    def reg_loss
+        puts "#{previous_player.player_name} you lost this round by completing the word, #{@fragment}"
+        rec_loss(previous_player)
+    end
     def rec_loss(player)
         @rec[player] += ("GHOST".delete @rec[player]).chars.first 
         puts "You now have #{@rec[player]}"
