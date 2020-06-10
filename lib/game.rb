@@ -66,3 +66,10 @@ class Game
         else false
         end
     end
+
+    def rec_loss(player)
+        @rec[player] += ("GHOST".delete @rec[player]).chars.first 
+        puts "You now have #{@rec[player]}"
+        @fragment.clear
+        next_player
+    end
