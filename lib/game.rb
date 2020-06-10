@@ -29,3 +29,7 @@ class Game
         @players.last
     end
 
+    def next_player 
+        @players.rotate!
+    end
+
