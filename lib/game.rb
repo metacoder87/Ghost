@@ -50,3 +50,10 @@ class Game
         @dictionary.each { |word| word[0..@fragment.length-1] == @fragment ? matches << word : word }
         matches
     end
+    
+    def valid_frag?
+        if fragment_matches.count > 0
+            true
+        else false
+        end
+    end
