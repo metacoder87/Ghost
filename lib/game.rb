@@ -103,6 +103,12 @@ class Game
         puts "#{previous_player.player_name} you lost this round by completing the word, #{@fragment}"
         rec_loss(previous_player)
     end
+    def game_lost?
+        if @rec.values.any? { |score| score == "GHOST" }
+            return true
+        else false
+        end
+    end
     def rec_loss(player)
         @rec[player] += ("GHOST".delete @rec[player]).chars.first 
         puts "You now have #{@rec[player]}"
