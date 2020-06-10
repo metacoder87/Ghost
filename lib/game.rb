@@ -117,7 +117,7 @@ class Game
     end
 
     def game_lost?
-        if @rec.values.any? { |score| score == "GHOST" }
+        if @players.count == 1
             return true
         else false
         end
