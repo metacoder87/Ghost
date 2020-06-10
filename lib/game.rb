@@ -36,6 +36,7 @@ class Game
     def take_turn(player)
         if round_lost?
             reg_loss
+        elsif player_lost?(player)
         elsif game_lost?
         else
             char = current_player.get_guess
@@ -47,7 +48,7 @@ class Game
                     challenge
                 end
             else puts "Try entering a single character command from A - Z or challenging your oppenent with the word, challenge."
-                next_player
+                last_player
             end
         end
     end
