@@ -10,3 +10,10 @@ class Player
     def initialize(player_name)
         @player_name = player_name
     end
+
+    def get_guess
+        puts "#{@player_name} take a guess..."
+        gets.chomp.to_s
+    end 
+
+end
