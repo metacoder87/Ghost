@@ -58,6 +58,19 @@ class Game
         end
     end
 
+    def challenge
+        if valid_frag?
+            puts "#{current_player.player_name} you lost this round because, #{@fragment}\n 
+                    Is building toward the words: #{fragment_matches}"
+            rec_loss(current_player)
+            next_player
+        else 
+            puts "#{previous_player.player_name} you lost this round because, #{@fragment}\n 
+                    Is not building toward any words and #{current_player.player_name} called you on it."
+            rec_loss(previous_player)
+        end
+    end
+
     def round_lost?
         matched = []
         @dictionary.each { |word| @fragment == word ? matched << word : word }
