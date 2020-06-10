@@ -33,6 +33,10 @@ class Game
         @players.rotate!
     end
 
+    def last_player
+        @players.rotate!(-1)
+    end
+
     def take_turn(player)
         if round_lost?
             reg_loss
