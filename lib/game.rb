@@ -127,7 +127,12 @@ class Game
         @rec[player] += ("GHOST".delete @rec[player]).chars.first 
         puts "You now have #{@rec[player]}"
         @fragment.clear
-        next_player
+        if player_lost?(player)
+            @rec.delete(player)
+            @players.delete(player)
+            print "Game over,\n #{player.player_name} you are a GHOST...\n"
+        end
+        last_player
     end
 
     def play_game
