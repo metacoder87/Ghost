@@ -103,15 +103,34 @@ class Game
         puts "#{previous_player.player_name} you lost this round by completing the word, #{@fragment}"
         rec_loss(previous_player)
     end
+
     def game_lost?
         if @rec.values.any? { |score| score == "GHOST" }
             return true
         else false
         end
     end
+
     def rec_loss(player)
         @rec[player] += ("GHOST".delete @rec[player]).chars.first 
         puts "You now have #{@rec[player]}"
         @fragment.clear
         next_player
     end
+
+    def play_game
+        until game_lost? do
+            take_turn(current_player)
+            next_player
+        end
+
+        while game_lost?
+            loser = @rec.key("GHOST").player_name
+            print "Game over, #{loser} you are a GHOST..."
+            break
+        end
+    end
+
+    game = Game.new('player_1', 'player_2')
+    game.take_turn(game.play_game)
+end
