@@ -1,4 +1,9 @@
+
+
+
 # Ghost
+# https://en.wikipedia.org/wiki/Ghost_(game)
+
 # Today we'll be writing a Ruby implementation of everyone's (or maybe just my) 
 # favorite road-trip word game, Ghost.
 
@@ -34,8 +39,10 @@
 # Assign instance variables for the players, fragment, and dictionary. 
 # Since we'll be checking the fragment for inclusion in the dictionary, we'll want 
 # to use a data structure with fast lookup: a Hash or Set would be ideal. 
-# You can use this file to populate your dictionary; it contains only words three 
-# letters or longer (otherwise we wouldn't have a very interesting game).
+# You can use this file:
+# https://assets.aaonline.io/fullstack/ruby/projects/ghost/dictionary.txt
+# to populate your dictionary; it contains only words three letters or longer 
+# (otherwise we wouldn't have a very interesting game).
 
 # 💡 NOTE: Using a Hash or a Set instead of an Array to store our dictionary allows 
 # us to very quickly check if the fragment is included in the dictionary. In fact, 
