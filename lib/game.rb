@@ -24,3 +24,8 @@ class Game
     def current_player
         @players.first
     end
+
+    def previous_player
+        @players.last
+    end
+
