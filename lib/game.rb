@@ -109,6 +109,13 @@ class Game
         rec_loss(previous_player)
     end
 
+    def player_lost?(player)
+        if @rec[player] == "GHOST"
+            return true
+        else false
+        end
+    end
+
     def game_lost?
         if @rec.values.any? { |score| score == "GHOST" }
             return true
