@@ -33,6 +33,25 @@ class Game
         @players.rotate!
     end
 
+    def take_turn(player)
+        if round_lost?
+            reg_loss
+        elsif game_lost?
+        else
+            char = current_player.get_guess
+            if valid_play?(char)
+                if char.length == 1
+                    @fragment += char
+                    puts @fragment
+                else
+                    challenge
+                end
+            else puts "Try entering a single character command from A - Z or challenging your oppenent with the word, challenge."
+                next_player
+            end
+        end
+    end
+
     def valid_play?(command)
         alph = ["challenge"]
 
