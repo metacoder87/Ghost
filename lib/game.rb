@@ -33,3 +33,14 @@ class Game
         @players.rotate!
     end
 
+    def valid_play?(command)
+        alph = ["challenge"]
+
+        if command.length == 1
+            ("a".."z").each { |char| alph << char }
+            alph.include?(command)
+        elsif command == alph.first
+            true
+        else false
+        end
+    end
