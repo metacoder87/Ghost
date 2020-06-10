@@ -21,3 +21,6 @@ class Game
         @players.each { |player| @rec[player] = "" }        
     end
 
+    def current_player
+        @players.first
+    end
