@@ -44,3 +44,9 @@ class Game
         else false
         end
     end
+
+    def fragment_matches
+        matches = []
+        @dictionary.each { |word| word[0..@fragment.length-1] == @fragment ? matches << word : word }
+        matches
+    end
