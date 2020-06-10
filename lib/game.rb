@@ -142,8 +142,7 @@ class Game
         end
 
         while game_lost?
-            loser = @rec.key("GHOST").player_name
-            print "Game over, #{loser} you are a GHOST..."
+            print "#{current_player.player_name} WON,\n you are the lone survivor...\n"
             break
         end
     end
