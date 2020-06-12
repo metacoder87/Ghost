@@ -4,6 +4,7 @@
 
 
 require_relative 'player'
+require_relative 'arti'
             
 class Game
 
@@ -11,7 +12,7 @@ class Game
 
     def initialize(*players)
         @players = []
-        players.each { |player| @players << Player.new(player) }
+        players.each { |player| player[0..2] == "ai_" || player[0..2] == "art" ? @players << Arti.new(player) : @players << Player.new(player)}
         @fragment = ""
         @dictionary = Set.new
         IO.readlines('/Volumes/2tXD Backup/My Stuff/Documents/App Academy Assignments/gary_miller_ghost_project/lib/dictionary.txt').each do |line|
@@ -38,12 +39,18 @@ class Game
     end
 
     def take_turn(player)
+        char = ""
         if round_lost?
             reg_loss
         elsif player_lost?(player)
         elsif game_lost?
         else
-            char = current_player.get_guess
+            if player.is_a?(Player)
+                char = current_player.get_guess
+            elsif player.is_a?(Arti)
+                char = current_player.pick_move(@fragment)
+                puts char
+            end
             if valid_play?(char)
                 if char.length == 1
                     @fragment += char
@@ -147,6 +154,6 @@ class Game
         end
     end
 
-    game = Game.new('player_1', 'player_2', 'player_3')
+    game = Game.new('arti_1', 'ai_2', 'arti_3')
     game.take_turn(game.play_game)
 end
