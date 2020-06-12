@@ -21,3 +21,10 @@ class Arti
             matches
         end
         
+        def valid_frag?
+            if fragment_matches.count > 0
+                true
+            else false
+            end
+        end
+
