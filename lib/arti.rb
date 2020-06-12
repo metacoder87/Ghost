@@ -28,3 +28,52 @@ class Arti
             end
         end
 
+        def pick_move(fragment)
+            $fragment = fragment
+
+            even_matches = []
+            odd_matches = []
+
+            even_choices = []
+            odd_choices = []
+
+            choice = ""
+            safe_i = $fragment.length
+            alph = ('a'..'z').collect { |char| char }
+
+            fragment_matches.each { |word| word.length >= safe_i && word.length.odd? ? odd_matches << word : word }
+            fragment_matches.each { |word| word.length >= safe_i && word.length.even? ? even_matches << word : word }
+
+            even_matches.each { |word| even_choices << word[safe_i] }
+            odd_matches.each { |word| odd_choices << word[safe_i] }
+
+            if $fragment.length == 0
+                choice = alph.shuffle.first
+            elsif $fragment.length.odd?
+                if valid_frag?
+                    if odd_matches.count > 0 
+                        choice = odd_choices.uniq.first
+                    elsif even_matches.count > 0 && odd_choices.uniq.count == 0
+                        choice = even_choices.uniq.first
+                    end
+                else choice = "challenge"
+                end
+            else
+                if valid_frag?
+                    
+                    if even_matches.count > 0 
+                        choice = even_choices.uniq.first
+                    elsif odd_matches.count > 0 && even_choices.uniq.count == 0
+                        choice = odd_choices.uniq.first
+                    end
+                else choice = "challenge"
+                end
+            end
+            # puts "Even Matches: #{even_matches}"
+            # puts "Even Choices: #{even_choices.uniq}"
+            # puts "Odd Matches: #{odd_matches}"
+            # puts "Odd Choices: #{odd_choices.uniq}"
+            # puts "Choice: #{choice}"
+            choice
+        end
+end
