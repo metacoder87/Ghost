@@ -154,6 +154,7 @@ class Game
         end
     end
 
-    game = Game.new('arti_1', 'ai_2', 'arti_3')
+    # game = Game.new("Player_1", "Player_2", "Player_3")
+    game = Game.new('arti_1', 'ai_2', 'arti_3', 'ai_4')
     game.take_turn(game.play_game)
 end
