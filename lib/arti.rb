@@ -52,9 +52,9 @@ class Arti
             elsif $fragment.length.odd?
                 if valid_frag?
                     if odd_matches.count > 0 
-                        choice = odd_choices.uniq.first
+                        choice = odd_choices.uniq.last
                     elsif even_matches.count > 0 && odd_choices.uniq.count == 0
-                        choice = even_choices.uniq.first
+                        choice = even_choices.uniq.sample
                     end
                 else choice = "challenge"
                 end
@@ -62,9 +62,9 @@ class Arti
                 if valid_frag?
                     
                     if even_matches.count > 0 
-                        choice = even_choices.uniq.first
+                        choice = even_choices.uniq.last
                     elsif odd_matches.count > 0 && even_choices.uniq.count == 0
-                        choice = odd_choices.uniq.first
+                        choice = odd_choices.uniq.sample
                     end
                 else choice = "challenge"
                 end
