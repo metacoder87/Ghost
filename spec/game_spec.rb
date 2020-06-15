@@ -160,3 +160,14 @@ describe "Game" do
         end
     end
 
+    describe "#game_lost?" do
+        it "should return false when the game is not lost" do
+            expect(game.game_lost?).to be(false)
+        end
+
+        it "should return true when the game is lost" do
+            players = game.instance_variable_get(:@players)
+            players.pop(3)
+            expect(game.game_lost?).to be(true)
+        end
+    end
