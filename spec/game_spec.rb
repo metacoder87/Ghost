@@ -147,3 +147,16 @@ describe "Game" do
         end
     end
 
+    describe "#player_lost?" do
+        it "should return false if the player has not lost" do
+            expect(game.player_lost?(game.current_player)).to be(false)
+        end
+
+        it "should return true if the player has lost" do
+            rec = game.instance_variable_get(:@rec)
+            player = game.current_player
+            rec[player] = "GHOST"
+            expect(game.player_lost?(player)).to be(true)
+        end
+    end
+
