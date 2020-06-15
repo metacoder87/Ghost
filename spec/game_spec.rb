@@ -124,3 +124,14 @@ describe "Game" do
         end
     end
 
+    describe "#round_lost?" do
+        it "should return false if the round is not yet lost" do
+            game.fragment = "adrif"
+            expect(game.round_lost?).to be(false)
+        end
+
+        it "should return true if the round is lost" do
+            game.fragment = "adrift"
+            expect(game.round_lost?).to be(true)
+        end
+    end
