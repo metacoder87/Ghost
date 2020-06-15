@@ -3,6 +3,8 @@
             # https://github.com/metacoder87/Ghost
 
 
+require 'set'
+
 class Arti
 
     attr_accessor :player_name
