@@ -33,3 +33,19 @@ describe "Arti" do
             expect(game.valid_frag?).to be(false)
         end
     end
+
+    describe "#pick_move" do
+        it "should pick challenge is no winning move available" do
+            expect(arti.pick_move("zjt")).to eq("challenge")
+        end
+
+        it "should pick a move based on the available words" do
+            expect(arti.pick_move("adrif")).to eq("t")
+        end
+    end
+end
+
+
+            # meta_coder (Gary Miller) =)
+            # gmiller052611@gmail.com
+            # https://github.com/metacoder87/Ghost
