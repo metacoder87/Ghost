@@ -43,3 +43,10 @@ describe "Game" do
             expect(game.current_player.player_name).to eq("player_1")
         end
     end
+
+    describe "#previous_player" do
+        it "should set previous_player to the last player in @players" do
+            expect(game.previous_player.player_name).to eq("arti_4")
+        end
+    end
+
