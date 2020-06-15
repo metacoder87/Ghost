@@ -158,3 +158,7 @@ class Game
     # game = Game.new('arti_1', 'ai_2', 'arti_3', 'ai_4')
     # game.take_turn(game.play_game)
 end
+
+            # meta_coder (Gary Miller) =)
+            # gmiller052611@gmail.com
+            # https://github.com/metacoder87/Ghost
