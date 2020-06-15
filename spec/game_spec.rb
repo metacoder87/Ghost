@@ -50,3 +50,11 @@ describe "Game" do
         end
     end
 
+    describe "#next_player" do
+        it "should switch to the second player in the queue" do
+            players = game.instance_variable_get(:@players)
+            game.next_player
+            expect(game.current_player.player_name).to eq("player_2")
+        end
+    end
+
