@@ -185,3 +185,16 @@ describe "Game" do
         end
     end
 
+    describe "#play_game" do
+        let(:tame) { Game.new("ai_1", "arti_2") }
+
+        it "should loop until game_lost? is true" do
+            expect { tame.play_game }.to output(/WON/).to_stdout
+        end
+    end
+
+end
+
+            # meta_coder (Gary Miller) =)
+            # gmiller052611@gmail.com
+            # https://github.com/metacoder87/Ghost
