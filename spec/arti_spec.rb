@@ -21,3 +21,15 @@ describe "Arti" do
             expect(game.fragment_matches).to eq(["adrift"])
         end
     end
+
+    describe "#valid_frag?" do
+        it "should return true as long as there are fragment_matches" do
+            game.fragment = "adrif"
+            expect(game.valid_frag?).to be(true)
+        end
+
+        it "should return false when there are no fragment_matches" do
+            game.fragment = "zjt"
+            expect(game.valid_frag?).to be(false)
+        end
+    end
