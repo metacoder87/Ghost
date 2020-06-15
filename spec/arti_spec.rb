@@ -9,3 +9,8 @@ describe "Arti" do
     let(:arti) { Arti.new("ai_1") }
     let(:game) { Game.new("ai_1") }
 
+    describe "#initialize" do
+        it "should accept an ai-player name" do
+            arti
+        end
+    end
