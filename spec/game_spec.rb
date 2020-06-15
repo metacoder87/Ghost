@@ -135,3 +135,15 @@ describe "Game" do
             expect(game.round_lost?).to be(true)
         end
     end
+
+    describe "#reg_loss" do
+        it "should record a regular loss" do
+            expect(game.reg_loss).to be(game.rec_loss(game.previous_player))
+        end
+
+        it "should print 'you lost this round by completing the word, adrift'" do
+            game.fragment = "adrift"
+            expect { game.reg_loss }.to output(/you lost this round by completing the word, adrift/).to_stdout
+        end
+    end
+
