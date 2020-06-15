@@ -58,3 +58,29 @@ describe "Game" do
         end
     end
 
+    describe "#take_turn" do
+        # it "should print 'take a guess...'" do
+        #     input = "x"
+        #     allow(game).to receive(:gets).and_return(input)
+        #     expect { game.take_turn(game.current_player) }.to output(/take a guess.../).to_stdout
+        # end
+    end
+
+    describe "#valid_play?" do
+        it "should return true when given a single letter of the alphabet" do
+            expect(game.valid_play?("z")).to be(true)
+            expect(game.valid_play?("v")).to be(true)
+            expect(game.valid_play?("g")).to be(true)
+        end
+
+        it "should return false when anything else is input" do
+            expect(game.valid_play?("ab")).to be(false)
+            expect(game.valid_play?("1")).to be(false)
+            expect(game.valid_play?("&i5")).to be(false)
+        end
+
+        it "should recognize Challenge as a valid command" do
+            expect(game.valid_play?("challenge")).to be(true)
+        end
+    end
+
