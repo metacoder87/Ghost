@@ -171,3 +171,17 @@ describe "Game" do
             expect(game.game_lost?).to be(true)
         end
     end
+
+    describe "#rec_loss" do
+        it "should print 'You now have' up until the player is eliminated" do
+            expect { game.rec_loss(game.current_player) }.to output(/You now have/).to_stdout
+        end
+
+        it "should print 'Game over' once the player is eliminated" do
+            rec = game.instance_variable_get(:@rec)
+            player = game.current_player
+            rec[player] = "GHOS"
+            expect { game.rec_loss(game.current_player) }.to output(/Game over/).to_stdout
+        end
+    end
+
