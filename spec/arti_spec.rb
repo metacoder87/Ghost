@@ -14,3 +14,10 @@ describe "Arti" do
             arti
         end
     end
+
+    describe "#fragment_matches" do
+        it "should return an array of words that match the fragment" do
+            game.fragment = "adrif"
+            expect(game.fragment_matches).to eq(["adrift"])
+        end
+    end
