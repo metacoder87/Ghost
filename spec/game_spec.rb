@@ -103,3 +103,24 @@ describe "Game" do
         end
 
     end
+
+    describe "#challenge" do
+        it "should record the loss of the challenging player if the fragment is valid" do
+            game.fragment = "adrif"
+            expect(game.challenge).to be(game.rec_loss(game.current_player))
+        end
+
+        it "should print 'you lost this round' to the challenging player" do
+            expect { game.challenge }.to output(/you lost this round/).to_stdout
+        end
+
+        it "should record the loss of the challenged player if the fragment is invalid" do
+            game.fragment = "adkjf"
+            expect(game.challenge).to be(game.rec_loss(game.previous_player))
+        end
+
+        it "should print 'you lost this round' to the challenged player" do
+            expect { game.challenge }.to output(/you lost this round/).to_stdout
+        end
+    end
+
