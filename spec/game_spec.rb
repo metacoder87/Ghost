@@ -38,3 +38,8 @@ describe "Game" do
 
     end
 
+    describe "#current_player" do
+        it "should set current_player to the first player in @players" do
+            expect(game.current_player.player_name).to eq("player_1")
+        end
+    end
